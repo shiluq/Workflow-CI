@@ -35,7 +35,6 @@ def train_saham_basic():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
 
     print("\n--- 2. Memulai Training Model dengan Autolog & Manual Log ---")
-    with mlflow.start_run(run_name="RandomForest_Basic_Default"):
         model = RandomForestRegressor(random_state=42)
         model.fit(X_train, y_train)
 
