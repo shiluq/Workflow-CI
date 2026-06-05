@@ -27,8 +27,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install mlflow scikit-learn pandas joblib
 
-    # 4. MENJALANKAN TRAINING SEBENARNYA (Sesuai Kriteria 3 dari Reviewer)
+    # 4. MENJALANKAN TRAINING SEBENARNYA (Sudah Diperbaiki)
     - name: Run MLflow Training
       run: |
-        # Perintah sakti ini akan mengeksekusi file MLProject kamu secara otomatis di server GitHub
-        mlflow run MLProject --no-conda
+        # Menggunakan --env-manager=local sebagai pengganti --no-conda yang sudah deprecated
+        mlflow run MLProject --env-manager=local
