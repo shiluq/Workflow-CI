@@ -35,20 +35,21 @@ def train_saham_basic():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, shuffle=False)
 
     print("\n--- 2. Memulai Training Model dengan Autolog & Manual Log ---")
-        model = RandomForestRegressor(random_state=42)
-        model.fit(X_train, y_train)
+    # FIX: Indentasi sudah dirapikan, sejajar dengan kode di atasnya
+    model = RandomForestRegressor(random_state=42)
+    model.fit(X_train, y_train)
 
-        predictions = model.predict(X_test)
-        r2 = r2_score(y_test, predictions)
-        print(f"\nSukses! Model dilatih dengan R2 Score: {r2:.4f}")
-        
-        # TAMBAHAN KUNCI LULUS: Paksa log model manual ke dalam artefak run ini
-        print("Menyimpan folder model ke Artefak MLflow...")
-        mlflow.sklearn.log_model(sk_model=model, artifact_path="model")
-        
-        # Simpan model.pkl di luar untuk bahan serving Kriteria 4 nanti
-        joblib.dump(model, "../model.pkl")
-        print("Folder 'mlruns' dan file 'model.pkl' lokal siap digunakan!")
+    predictions = model.predict(X_test)
+    r2 = r2_score(y_test, predictions)
+    print(f"\nSukses! Model dilatih dengan R2 Score: {r2:.4f}")
+    
+    # TAMBAHAN KUNCI LULUS: Paksa log model manual ke dalam artefak run ini
+    print("Menyimpan folder model ke Artefak MLflow...")
+    mlflow.sklearn.log_model(sk_model=model, artifact_path="model")
+    
+    # Simpan model.pkl di luar untuk bahan serving Kriteria 4 nanti
+    joblib.dump(model, "../model.pkl")
+    print("Folder 'mlruns' dan file 'model.pkl' lokal siap digunakan!")
 
 if __name__ == '__main__':
     train_saham_basic()
