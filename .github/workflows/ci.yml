@@ -30,5 +30,4 @@ jobs:
    # 4. MENJALANKAN TRAINING SEBENARNYA
     - name: Run MLflow Training
       run: |
-        # Menggunakan ./ di dalam petik untuk memaksa MLflow membaca sebagai local path
-        mlflow run "./MI project" --env-manager=local
+        mlflow run "MLproject" --env-manager=local
